@@ -16,7 +16,7 @@
 					<th><center>JABATAN</center></th>
 					<th><center>GOLONGAN</center></th>
 					<th><center>PHOTO</center></th>
-					<th colspan="3"><center>PILIHAN </center></th>
+					<th colspan="3"><center>Action </center></th>
 
                 </tr>
             </thead>

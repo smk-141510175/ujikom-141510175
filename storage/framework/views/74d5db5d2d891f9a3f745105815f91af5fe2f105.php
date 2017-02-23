@@ -21,7 +21,7 @@
                     <th>Tanggal Pengambilan</th>
                     <th>Status Pengambilan</th>
                     <th>Petugas Penerima</th>
-                    <th colspan="2"><center>Section</center></th>
+                    <th colspan="2"><center>Action</center></th>
 
                 </tr>
             </thead>

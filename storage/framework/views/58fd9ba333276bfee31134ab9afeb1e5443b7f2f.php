@@ -16,7 +16,7 @@
                     <th>Kode Golongan</th>
                     <th>Nama Golongan</th>
                     <th>Besaran Uang</th>
-                    <th colspan="2"><center>Section</center></th>
+                    <th colspan="2"><center>Action</center></th>
 
                 </tr>
             </thead>

@@ -17,7 +17,7 @@
 					<th><center>Status</center></th>
 					<th><center>Jumlah Anak</center></th>
 					<th><center>Besaran Uang</center></th>
-					<th colspan="3"><center>Pilihan</center></th>
+					<th colspan="3"><center>Action</center></th>
 
                 </tr>
             </thead>
