@@ -7,7 +7,7 @@
 
                 <div class="panel panel-success">
                 <div class="panel-heading">     
-                <h3><CENTER>Table Jabatan</CENTER></h3></CENTER>
+                <h3><CENTER>Table Penggajian</CENTER></h3></CENTER>
                 </div>
                 <div class="panel-primary">
                     <table class="table table-border " >

@@ -8,7 +8,7 @@
     <?php echo Form::open(['url' => 'Jabatan']); ?>
 
      <div class="form-group<?php echo e($errors->has('Kode_Jabatan') ? ' has-error' : ''); ?>">
-                            <?php echo Form::label('Kode', 'Kode Golongan:'); ?>
+                            <?php echo Form::label('Kode', 'Kode Jabatan:'); ?>
 
                             <input type="text" name="Kode_Jabatan" class="form-control" required>
 

@@ -16,7 +16,7 @@
         <div class="col-md-6 col-sm-6 col-xs-12">
             <select class="form-control col-md-7 col-xs-12" name="Kode_Tunjangan">
             
-            @foreach($Penggajian as $data)
+            @foreach($Gaji as $data)
                 <option value="{{$data->id}}">{{$data->Pegawai->Nip}}&nbsp;|&nbsp;{{$data->Pegawai->User->name}}</option>
             @endforeach
             </select>

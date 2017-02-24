@@ -40,8 +40,8 @@ class PenggajianController extends Controller
     public function create()
     {
 
-        $Penggajian = Tunjangan_Pegawai::paginate(10);
-        return view('Penggajian.create',compact('Penggajian')); 
+        $Gaji = Tunjangan_Pegawai::paginate(10);
+        return view('Penggajian.create',compact('Gaji')); 
     }
 
     /**
@@ -97,10 +97,10 @@ class PenggajianController extends Controller
         }
         else
         {
-            $Gaji->Jumlah_jam_lembur=$Lembur_Pegawai->Jumlah_jam;
-            $Gaji->Jumlah_uang_lembur =($Lembur_Pegawai->Jumlah_jam)*($Kategori_Lembur->Besaran_uang);
+            $Gaji->Jumlah_jam_lembur=$Lembur_Pegawai->Jumlah_Jam;
+            $Gaji->Jumlah_uang_lembur =($Lembur_Pegawai->Jumlah_Jam)*($Kategori_Lembur->Besaran_uang);
             $Gaji->Gaji_pokok=$Jabatan->Besaran_Uang+$Golongan->Besaran_uang;
-            $Gaji->Total_gaji = ($Lembur_Pegawai->Jumlah_jam*$Kategori_Lembur->Besaran_Uang)+($Tunjangan->Jumlah_Anak*$Tunjangan->Besaran_Uang)+($Jabatan->Besaran_Uang+$Golongan->Besaran_uang);
+            $Gaji->Total_gaji = ($Lembur_Pegawai->Jumlah_Jam*$Kategori_Lembur->Besaran_Uang)+($Tunjangan->Jumlah_Anak*$Tunjangan->Besaran_Uang)+($Jabatan->Besaran_Uang+$Golongan->Besaran_uang);
             $Gaji->Tanggal_pengambilan = date('d-m-y');
             $Gaji->Status_pengambilan = Input::get('Status_pengambilan');
             $Gaji->Kode_Tunjangan = Input::get('Kode_Tunjangan');

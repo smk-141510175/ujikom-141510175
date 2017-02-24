@@ -16,7 +16,7 @@
         <div class="col-md-6 col-sm-6 col-xs-12">
             <select class="form-control col-md-7 col-xs-12" name="Kode_Tunjangan">
             
-            <?php $__currentLoopData = $Penggajian; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php $__currentLoopData = $Gaji; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <option value="<?php echo e($data->id); ?>"><?php echo e($data->Pegawai->Nip); ?>&nbsp;|&nbsp;<?php echo e($data->Pegawai->User->name); ?></option>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </select>

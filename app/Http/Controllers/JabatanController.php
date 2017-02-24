@@ -55,6 +55,7 @@ class JabatanController extends Controller
         $jabat->Nama_Jabatan = $request->get('Nama_Jabatan');
         $jabat->Besaran_Uang = $request->get('Besaran_Uang');
         $jabat->save();
+        return redirect('Jabatan');
     }
 
     /**

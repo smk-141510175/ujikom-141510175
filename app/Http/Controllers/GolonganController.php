@@ -58,6 +58,7 @@ class GolonganController extends Controller
         $Gol->Nama_Golongan = $request->get('Nama_Golongan');
         $Gol->Besaran_Uang = $request->get('Besaran_Uang');
         $Gol->save();
+        return redirect('Golongan');
     }
 
     /**
