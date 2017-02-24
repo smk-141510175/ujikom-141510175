@@ -14,11 +14,11 @@
                 <tr>
                    <th><center>No</center></th>
 					<th><center>NIP</center></th>
-					<th><center>NAMA PEGAWAI</center></th>
-					<th><center>JABATAN</center></th>
-					<th><center>GOLONGAN</center></th>
-					<th><center>PHOTO</center></th>
-					<th colspan="3"><center>Action </center></th>
+					<th><center>Nama Pegawai</center></th>
+					<th><center>Jabatan</center></th>
+					<th><center>Golongan</center></th>
+					<th><center>Photo</center></th>
+					<th colspan="3"><center>Action</center></th>
 
                 </tr>
             </thead>
@@ -39,19 +39,20 @@
 								<img src="{{asset('/image/'.$data->Photo)}}" height="100px" width="100px">
 							</center>
 						</td>
-						<!-- <td><center><a href="{{ url('Pegawai', $data->id) }}" class="btn btn-primary">Lihat</a></center></td>
-					 -->	<td><center><a href="{{ route('Pegawai.edit', $data->id) }}" class="btn btn-warning">Ubah</a></center></td>
-						<td><center>
-							{!! Form::open(['method' => 'DELETE', 'route' => ['Pegawai.destroy', $data->id]]) !!}
-							{!! Form::submit('Hapus', ['class' => 'btn btn-danger']) !!}
-							{!! Form::close() !!}
-						</center></td>
+						
+                                <td><center><a href="{{route('Pegawai.edit',$data->id)}}" class="btn btn-warning">Update</a></center></td>
+             <td><center>
+               {!! Form::open(['method' => 'DELETE', 'route'=>['Pegawai.destroy', $data->id]]) !!}
+             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+             {!! Form::close() !!}</center>
+     </td>
+                                
 					</tr>
 				@endforeach
 
             </tbody>
         </table>
-        
+      
                 </div>
             </div>
         </div>

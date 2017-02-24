@@ -31,7 +31,7 @@
                     <td><?php echo e($data->Kode_Lembur); ?></td>
                     <td><?php echo e($data->Jabatan->Nama_Jabatan); ?></td>
                     <td><?php echo e($data->Golongan->Nama_Golongan); ?></td>
-                     <td><?php echo 'Rp'. number_format($data->Besaran_Uang, 2,",","."); ?>
+                     <td><?php echo 'Rp.'. number_format($data->Besaran_Uang, 2,",","."); ?>
              </td>
                     
              

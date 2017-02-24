@@ -7,7 +7,7 @@
                 <div class="panel-heading">Tambah Data Pegawai</div>
                 <div class="panel-body">
                 <hr>
-                <form class="form-horizontal" role="form" method="POST" action="{{url('/Pegawai')}}" enctype="multipart/form-data">
+               <form class="form-horizontal" role="form" method="POST" action="{{url('/Pegawai')}}" enctype="multipart/form-data">
                 {!! csrf_field()!!} 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Name</label>
@@ -46,6 +46,7 @@
                                     <option value="HRD">HRD</option>
                                     <option value="Bendahara">Bendahara</option>
                                     <option value="Pegawai">Pegawai</option>
+                                    
                                 </select>
                             </div>
                         </div>
@@ -72,15 +73,15 @@
                             </div>
                         </div>                        
                         <hr>
-						<div class="form-group{{ $errors->has('Nip') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('Nip') ? ' has-error' : '' }}">
                             <label for="Nip" class="col-md-4 control-label">NIP</label>
-							<div class="col-md-6">
-                                <input id="Nip" type="text" class="form-control" name="Nip"  required autofocus>
+                            <div class="col-md-6">
+                                <input id="Nip" type="text" class="form-control" name="Nip">
                             </div>
                         </div>
                     
 
-						<div class="form-group{{ $errors->has('Kode_Jabatan') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('Kode_Jabatan') ? ' has-error' : '' }}">
                             <label for="Kode_Jabatan" class="col-md-4 control-label">Nama Jabatan</label>
                             <div class="col-md-6">
                                 <select name="Kode_Jabatan" class="form-control">
@@ -104,20 +105,21 @@
                         <div class="form-group{{ $errors->has('Photo') ? ' has-error' : '' }}">
                             <label for="Photo" class="col-md-4 control-label">Photo</label>
                             <div class="col-md-6">
-                                <input id="Photo" type="file" class="form-control" name="Photo" value="{{ old('Photo') }}" required autofocus>
+                            <img  id="showgambar" src="{{asset('image/default.png')}}" width="200" height="200" class="img img-thumbnail">
+                                <input id="Photo" type="file" class="form-control" name="Photo" value="{{ old('Photo') }}" autofocus>
                             </div>
                         </div>
-						<div class="form-group">
+                        <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Tambah
                                 </button>
                             </div>
                         </div>
-					{!! Form::close() !!}
-	           </div>
-	       </div>
-	   </div>
+                    {!! Form::close() !!}
+               </div>
+           </div>
+       </div>
     </div>
-</div> 	
+</div>  
 @endsection

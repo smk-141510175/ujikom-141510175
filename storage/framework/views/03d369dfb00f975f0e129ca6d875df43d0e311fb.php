@@ -3,13 +3,21 @@
                 <div class="panel-heading"><center><font color="black" size="6%">Create Jabatan</font></div>
 </center>
                 <div class="panel-body">
+    
+                <div class="panel-body">
     <?php echo Form::open(['url' => 'Jabatan']); ?>
 
-    <div class="form-group">
-        <?php echo Form::label('Kode Jabatan', 'Kode Jabatan'); ?>
+     <div class="form-group<?php echo e($errors->has('Kode_Jabatan') ? ' has-error' : ''); ?>">
+                            <?php echo Form::label('Kode', 'Kode Golongan:'); ?>
 
-        <?php echo Form::text('Kode_Jabatan',null,['class'=>'form-control','required']); ?>
+                            <input type="text" name="Kode_Jabatan" class="form-control" required>
 
+                            <?php if($errors->has('Kode_Jabatan')): ?>
+                                <span class="help-block">
+                                    <strong><?php echo e($errors->first('Kode_Jabatan')); ?></strong>
+                                </span>
+                            <?php endif; ?> 
+                        </div>
     </div>
     <div class="form-group">
         <?php echo Form::label('Nama Jabatan', 'Nama Jabatan'); ?>

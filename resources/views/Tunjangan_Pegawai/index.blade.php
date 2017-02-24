@@ -42,7 +42,7 @@
                                        <?php
                                        if ( $data->Tunjangan->Jumlah_Anak <= '1' )
                                        {      
-                                           echo 'Rp '.number_format($data->Tunjangan->Besaran_Uang,2,",",".");
+                                           echo 'Rp.'.number_format($data->Tunjangan->Besaran_Uang,2,",",".");
                                        }      
 
                                        elseif ( $data->Tunjangan->Jumlah_Anak == '1' || $data->Tunjangan->Jumlah_Anak == '2')

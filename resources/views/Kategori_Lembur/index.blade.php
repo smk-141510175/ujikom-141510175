@@ -31,7 +31,7 @@
                     <td>{{ $data->Kode_Lembur}}</td>
                     <td>{{ $data->Jabatan->Nama_Jabatan }}</td>
                     <td>{{ $data->Golongan->Nama_Golongan }}</td>
-                     <td><?php echo 'Rp'. number_format($data->Besaran_Uang, 2,",","."); ?>
+                     <td><?php echo 'Rp.'. number_format($data->Besaran_Uang, 2,",","."); ?>
              </td>
                     
              

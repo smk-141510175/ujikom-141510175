@@ -32,7 +32,7 @@
                     <td><center>{{ $no++ }}</center></td>
                     <td>{{ $data->Kode_Jabatan }}</td>
                     <td>{{ $data->Nama_Jabatan }}</td>
-                     <td><?php echo 'Rp'. number_format($data->Besaran_Uang, 2,",","."); ?>
+                     <td><?php echo 'Rp.'. number_format($data->Besaran_Uang, 2,",","."); ?>
              </td>
                     
              

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Request;
 use App\Jabatan;
+use validator;
 class JabatanController extends Controller
 {
     /**
@@ -41,7 +42,9 @@ class JabatanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         //$this -> validate($request, [
+            //'Kode_Jabatan' => 'required|min:3|unique:Jabatan',
+            //]);
         $Jabatan=Request::all();
         Jabatan::create($Jabatan);
         return redirect('Jabatan');
@@ -81,9 +84,11 @@ class JabatanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        $JabatanUpdate=Request::all();
-        $Jabatan=Jabatan::find($id);
+         $Jabatan = Jabatan::find($id);
+
+        //$this -> validate($request, [
+           // 'Kode_Jabatan' => 'required|min:3',
+            //]);        $JabatanUpdate=Request::all();
         $Jabatan->update($JabatanUpdate);
         return redirect('Jabatan'); 
     }
@@ -96,8 +101,7 @@ class JabatanController extends Controller
      */
     public function destroy($id)
     {
-        //
-         Jabatan::find($id)->delete();
+             Jabatan::find($id)->delete();
         return redirect('Jabatan');
     }
 }

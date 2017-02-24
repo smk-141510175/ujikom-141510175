@@ -3,115 +3,55 @@
 @section('content')
 
 <br><br><br><br><br><br><br>
- <div class="right_col" role="main">
-          <div class="">
-            <div class="clearfix"></div>
+  <div class="container">
             <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <center><h2>Create Penggajian</h2></center>
-                    <ul class="nav navbar-right panel_toolbox">
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
+                    <center><h2>Input Data Penggajian</h2></center>
                     <br />
-                  {!! Form::open(['url' => 'Penggajian', 'class' => 'form-horizontal form-label-left']) !!}
-    <div id="pegawai">
-      <div class="form-group">
-          <div class="control-label col-md-3 col-sm-3 col-xs-12">
-              {!! Form::label('Tunjangan Pegawai', 'Tunjangan Pegawai ') !!}
-               <span class="required">*</span>
-          </div>
-          <div class="col-md-6 col-sm-6 col-xs-12">
+              {!! Form::open(['url' => 'Penggajian', 'class' => 'form-horizontal form-label-left']) !!}
+    <div class="form-group">
+        <div class="control-label col-md-3 col-sm-3 col-xs-12">
+            {!! Form::label('Pegawai', 'Pegawai ') !!}
+             <span class="required">*</span>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
             <select class="form-control col-md-7 col-xs-12" name="Kode_Tunjangan">
-            @foreach($tunjangan as $data)
-                <option value="{{$data->id}}">{{$data->Kode_Tunjangan}}</option>
+            
+            @foreach($Penggajian as $data)
+                <option value="{{$data->id}}">{{$data->Pegawai->Nip}}&nbsp;|&nbsp;{{$data->Pegawai->User->name}}</option>
             @endforeach
             </select>
         </div>
     </div>
-      </div>
-     <div class="form-group">
+    <div class="form-group">
         <div class="control-label col-md-3 col-sm-3 col-xs-12">
-            {!! Form::label('Jumlah Jam', 'Jumlah Jam ') !!}
+            {!! Form::label('Status Pengambilan', 'Status Pengambilan ') !!}
              <span class="required">*</span>
         </div>
         <div class="col-md-6 col-sm-6 col-xs-12">
-           {!! Form::number('Jumlah_jam_lembur',null,['class'=>'form-control col-md-7 col-xs-12']) !!}
-              <h4 class="text-danger"><?php echo '<br><br>'.$errors->first('NamaPoli', '<p>Form input harus diisi!!</p>') ?></h4>
+             <select name="Status_pengambilan" class="form-control">
+                                    <option value="0">Belum Diambil</option>
+                                    <option value="1">Sudah Diambil</option>
+            </select>
         </div>
     </div>
-      <div class="form-group">
-          <div class="control-label col-md-3 col-sm-3 col-xs-12">
-              {!! Form::label('Jumlah Uang Lembur', 'Jumlah Uang Lembur') !!}
-               <span class="required">*</span>
-          </div>
-          <div class="col-md-6 col-sm-6 col-xs-12">
-              {!! Form::number('Jumlah_uang_lembur',null,['class'=>'form-control col-md-7 col-xs-12']) !!}
-              <h4 class="text-danger"><?php echo '<br><br>'.$errors->first('NamaPoli', '<p>Form input harus diisi!!</p>') ?></h4>
-          </div>
-      </div>
+     <div class="col-md-6 col-sm-6 col-xs-12">
+      <span class="help-block">
+            {{$errors->first('Kode_Tunjangan')}}
+          </span>
+                                       <div>
+                                           @if(isset($error))
+                                               Check Lagi Gaji Sudah Ada
+                                           @endif
+                                       </div>
+                               </div>
        <div class="form-group">
-          <div class="control-label col-md-3 col-sm-3 col-xs-12">
-              {!! Form::label('Gaji Pokok', 'Gaji Pokok') !!}
-               <span class="required">*</span>
-          </div>
-          <div class="col-md-6 col-sm-6 col-xs-12">
-              {!! Form::number('Gaji_pokok',null,['class'=>'form-control col-md-7 col-xs-12']) !!}
-              <h4 class="text-danger"><?php echo '<br><br>'.$errors->first('NamaPoli', '<p>Form input harus diisi!!</p>') ?></h4>
-          </div>
-      </div>
-       <div class="form-group">
-          <div class="control-label col-md-3 col-sm-3 col-xs-12">
-              {!! Form::label('Total Gaji', 'Total Gaji') !!}
-               <span class="required">*</span>
-          </div>
-          <div class="col-md-6 col-sm-6 col-xs-12">
-              {!! Form::number('Total_gaji',null,['class'=>'form-control col-md-7 col-xs-12']) !!}
-              <h4 class="text-danger"><?php echo '<br><br>'.$errors->first('NamaPoli', '<p>Form input harus diisi!!</p>') ?></h4>
-          </div>
-      </div>
-       <div class="form-group">
-          <div class="control-label col-md-3 col-sm-3 col-xs-12">
-              {!! Form::label('Tanggal Pengambilan', 'Tanggal Pengambilan') !!}
-               <span class="required">*</span>
-          </div>
-          <div class="col-md-6 col-sm-6 col-xs-12">
-              {!! Form::date('Tanggal_pengambilan',null,['class'=>'form-control col-md-7 col-xs-12']) !!}
-              <h4 class="text-danger"><?php echo '<br><br>'.$errors->first('NamaPoli', '<p>Form input harus diisi!!</p>') ?></h4>
-          </div>
-      </div>
-      <div class="form-group">
-          <div class="control-label col-md-3 col-sm-3 col-xs-12">
-              {!! Form::label('Status Pengambilan', 'Status Pengambilan') !!}
-               <span class="required">*</span>
-          </div>
-          <div class="col-md-6 col-sm-6 col-xs-12">
-               <select class="form-control" name="Status_pengambilan" id="Status_pengambilan" required>
-                <option value="Sudah">Sudah</option>
-                <option value="Belum">Belum</option>
-            </select>
-          </div>
-      </div>
-       <div class="form-group">
-          <div class="control-label col-md-3 col-sm-3 col-xs-12">
-              {!! Form::label('Petugas Penerima', 'Petugas Penerima') !!}
-               <span class="required">*</span>
-          </div>
-          <div class="col-md-6 col-sm-6 col-xs-12">
-              {!! Form::text('Petugas_penerima',null,['class'=>'form-control col-md-7 col-xs-12']) !!}
-              <h4 class="text-danger"><?php echo '<br><br>'.$errors->first('NamaPoli', '<p>Form input harus diisi!!</p>') ?></h4>
-          </div>
-      </div>
-      <div class="form-group">
           <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-              {!! Form::submit('Save', ['class' => 'btn btn-danger form-control']) !!}
+              {!! Form::submit('Save', ['class' => 'btn btn-primary form-control']) !!}
           </div>
       </div>
     </div>
     {!! Form::close() !!}
-               
-    
+          </div>
+          </div>     
+    </div>
 @endsection

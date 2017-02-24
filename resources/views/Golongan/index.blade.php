@@ -29,7 +29,7 @@
                     <td><center>{{ $no++ }}</center></td>
                     <td>{{ $data->Kode_Golongan }}</td>
                     <td>{{ $data->Nama_Golongan }}</td>
-                     <td><?php echo 'Rp'. number_format($data->Besaran_Uang, 2,",","."); ?>
+                     <td><?php echo 'Rp.'. number_format($data->Besaran_Uang, 2,",","."); ?>
              </td>
                     
              

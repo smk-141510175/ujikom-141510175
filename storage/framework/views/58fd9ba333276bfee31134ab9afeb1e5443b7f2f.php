@@ -29,7 +29,7 @@
                     <td><center><?php echo e($no++); ?></center></td>
                     <td><?php echo e($data->Kode_Golongan); ?></td>
                     <td><?php echo e($data->Nama_Golongan); ?></td>
-                     <td><?php echo 'Rp'. number_format($data->Besaran_Uang, 2,",","."); ?>
+                     <td><?php echo 'Rp.'. number_format($data->Besaran_Uang, 2,",","."); ?>
              </td>
                     
              

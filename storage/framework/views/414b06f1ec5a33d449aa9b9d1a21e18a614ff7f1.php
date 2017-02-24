@@ -1,134 +1,63 @@
 <?php $__env->startSection('content'); ?>
 
 <br><br><br><br><br><br><br>
- <div class="right_col" role="main">
-          <div class="">
-            <div class="clearfix"></div>
+  <div class="container">
             <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <center><h2>Create Penggajian</h2></center>
-                    <ul class="nav navbar-right panel_toolbox">
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
+                    <center><h2>Input Data Penggajian</h2></center>
                     <br />
-                  <?php echo Form::open(['url' => 'Penggajian', 'class' => 'form-horizontal form-label-left']); ?>
+              <?php echo Form::open(['url' => 'Penggajian', 'class' => 'form-horizontal form-label-left']); ?>
 
-    <div id="pegawai">
-      <div class="form-group">
-          <div class="control-label col-md-3 col-sm-3 col-xs-12">
-              <?php echo Form::label('Tunjangan Pegawai', 'Tunjangan Pegawai '); ?>
-
-               <span class="required">*</span>
-          </div>
-          <div class="col-md-6 col-sm-6 col-xs-12">
-            <select class="form-control col-md-7 col-xs-12" name="Kode_Tunjangan">
-            <?php $__currentLoopData = $tunjangan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <option value="<?php echo e($data->id); ?>"><?php echo e($data->Kode_Tunjangan); ?></option>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-            </select>
-        </div>
-    </div>
-      </div>
-     <div class="form-group">
+    <div class="form-group">
         <div class="control-label col-md-3 col-sm-3 col-xs-12">
-            <?php echo Form::label('Jumlah Jam', 'Jumlah Jam '); ?>
+            <?php echo Form::label('Pegawai', 'Pegawai '); ?>
 
              <span class="required">*</span>
         </div>
         <div class="col-md-6 col-sm-6 col-xs-12">
-           <?php echo Form::number('Jumlah_jam_lembur',null,['class'=>'form-control col-md-7 col-xs-12']); ?>
-
-              <h4 class="text-danger"><?php echo '<br><br>'.$errors->first('NamaPoli', '<p>Form input harus diisi!!</p>') ?></h4>
+            <select class="form-control col-md-7 col-xs-12" name="Kode_Tunjangan">
+            
+            <?php $__currentLoopData = $Penggajian; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <option value="<?php echo e($data->id); ?>"><?php echo e($data->Pegawai->Nip); ?>&nbsp;|&nbsp;<?php echo e($data->Pegawai->User->name); ?></option>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </select>
         </div>
     </div>
-      <div class="form-group">
-          <div class="control-label col-md-3 col-sm-3 col-xs-12">
-              <?php echo Form::label('Jumlah Uang Lembur', 'Jumlah Uang Lembur'); ?>
+    <div class="form-group">
+        <div class="control-label col-md-3 col-sm-3 col-xs-12">
+            <?php echo Form::label('Status Pengambilan', 'Status Pengambilan '); ?>
 
-               <span class="required">*</span>
-          </div>
-          <div class="col-md-6 col-sm-6 col-xs-12">
-              <?php echo Form::number('Jumlah_uang_lembur',null,['class'=>'form-control col-md-7 col-xs-12']); ?>
-
-              <h4 class="text-danger"><?php echo '<br><br>'.$errors->first('NamaPoli', '<p>Form input harus diisi!!</p>') ?></h4>
-          </div>
-      </div>
-       <div class="form-group">
-          <div class="control-label col-md-3 col-sm-3 col-xs-12">
-              <?php echo Form::label('Gaji Pokok', 'Gaji Pokok'); ?>
-
-               <span class="required">*</span>
-          </div>
-          <div class="col-md-6 col-sm-6 col-xs-12">
-              <?php echo Form::number('Gaji_pokok',null,['class'=>'form-control col-md-7 col-xs-12']); ?>
-
-              <h4 class="text-danger"><?php echo '<br><br>'.$errors->first('NamaPoli', '<p>Form input harus diisi!!</p>') ?></h4>
-          </div>
-      </div>
-       <div class="form-group">
-          <div class="control-label col-md-3 col-sm-3 col-xs-12">
-              <?php echo Form::label('Total Gaji', 'Total Gaji'); ?>
-
-               <span class="required">*</span>
-          </div>
-          <div class="col-md-6 col-sm-6 col-xs-12">
-              <?php echo Form::number('Total_gaji',null,['class'=>'form-control col-md-7 col-xs-12']); ?>
-
-              <h4 class="text-danger"><?php echo '<br><br>'.$errors->first('NamaPoli', '<p>Form input harus diisi!!</p>') ?></h4>
-          </div>
-      </div>
-       <div class="form-group">
-          <div class="control-label col-md-3 col-sm-3 col-xs-12">
-              <?php echo Form::label('Tanggal Pengambilan', 'Tanggal Pengambilan'); ?>
-
-               <span class="required">*</span>
-          </div>
-          <div class="col-md-6 col-sm-6 col-xs-12">
-              <?php echo Form::date('Tanggal_pengambilan',null,['class'=>'form-control col-md-7 col-xs-12']); ?>
-
-              <h4 class="text-danger"><?php echo '<br><br>'.$errors->first('NamaPoli', '<p>Form input harus diisi!!</p>') ?></h4>
-          </div>
-      </div>
-      <div class="form-group">
-          <div class="control-label col-md-3 col-sm-3 col-xs-12">
-              <?php echo Form::label('Status Pengambilan', 'Status Pengambilan'); ?>
-
-               <span class="required">*</span>
-          </div>
-          <div class="col-md-6 col-sm-6 col-xs-12">
-               <select class="form-control" name="Status_pengambilan" id="Status_pengambilan" required>
-                <option value="Sudah">Sudah</option>
-                <option value="Belum">Belum</option>
+             <span class="required">*</span>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+             <select name="Status_pengambilan" class="form-control">
+                                    <option value="0">Belum Diambil</option>
+                                    <option value="1">Sudah Diambil</option>
             </select>
-          </div>
-      </div>
+        </div>
+    </div>
+     <div class="col-md-6 col-sm-6 col-xs-12">
+      <span class="help-block">
+            <?php echo e($errors->first('Kode_Tunjangan')); ?>
+
+          </span>
+                                       <div>
+                                           <?php if(isset($error)): ?>
+                                               Check Lagi Gaji Sudah Ada
+                                           <?php endif; ?>
+                                       </div>
+                               </div>
        <div class="form-group">
-          <div class="control-label col-md-3 col-sm-3 col-xs-12">
-              <?php echo Form::label('Petugas Penerima', 'Petugas Penerima'); ?>
-
-               <span class="required">*</span>
-          </div>
-          <div class="col-md-6 col-sm-6 col-xs-12">
-              <?php echo Form::text('Petugas_penerima',null,['class'=>'form-control col-md-7 col-xs-12']); ?>
-
-              <h4 class="text-danger"><?php echo '<br><br>'.$errors->first('NamaPoli', '<p>Form input harus diisi!!</p>') ?></h4>
-          </div>
-      </div>
-      <div class="form-group">
           <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-              <?php echo Form::submit('Save', ['class' => 'btn btn-danger form-control']); ?>
+              <?php echo Form::submit('Save', ['class' => 'btn btn-primary form-control']); ?>
 
           </div>
       </div>
     </div>
     <?php echo Form::close(); ?>
 
-               
-    
+          </div>
+          </div>     
+    </div>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
