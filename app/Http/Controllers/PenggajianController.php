@@ -88,7 +88,7 @@ class PenggajianController extends Controller
             $Gaji->Jumlah_jam_lembur= $nol;
             $Gaji->Jumlah_uang_lembur = $nol;
             $Gaji->Gaji_pokok=$Jabatan->Besaran_Uang+$Golongan->Besaran_Uang;
-            $Gaji->Total_gaji = ($Tunjangan->Jumlah_Anak*$Tunjangan->Besaran_Uang)+($Jabatan->Besaran_Uang+$Golongan->Besaran_uang);
+            $Gaji->Total_gaji = ($Tunjangan->Jumlah_Anak*$Tunjangan->Besaran_Uang)+($Jabatan->Besaran_Uang+$Golongan->Besaran_Uang);
             $Gaji->Tanggal_pengambilan = date('d-m-y');
             $Gaji->Status_pengambilan = Input::get('Status_pengambilan');
             $Gaji->Kode_Tunjangan = Input::get('Kode_Tunjangan');
@@ -98,9 +98,9 @@ class PenggajianController extends Controller
         else
         {
             $Gaji->Jumlah_jam_lembur=$Lembur_Pegawai->Jumlah_Jam;
-            $Gaji->Jumlah_uang_lembur =($Lembur_Pegawai->Jumlah_Jam)*($Kategori_Lembur->Besaran_uang);
-            $Gaji->Gaji_pokok=$Jabatan->Besaran_Uang+$Golongan->Besaran_uang;
-            $Gaji->Total_gaji = ($Lembur_Pegawai->Jumlah_Jam*$Kategori_Lembur->Besaran_Uang)+($Tunjangan->Jumlah_Anak*$Tunjangan->Besaran_Uang)+($Jabatan->Besaran_Uang+$Golongan->Besaran_uang);
+            $Gaji->Jumlah_uang_lembur =($Lembur_Pegawai->Jumlah_Jam)*($Kategori_Lembur->Besaran_Uang);
+            $Gaji->Gaji_pokok=$Jabatan->Besaran_Uang+$Golongan->Besaran_Uang;
+            $Gaji->Total_gaji = ($Lembur_Pegawai->Jumlah_Jam*$Kategori_Lembur->Besaran_Uang)+($Tunjangan->Jumlah_Anak*$Tunjangan->Besaran_Uang)+($Jabatan->Besaran_Uang+$Golongan->Besaran_Uang);
             $Gaji->Tanggal_pengambilan = date('d-m-y');
             $Gaji->Status_pengambilan = Input::get('Status_pengambilan');
             $Gaji->Kode_Tunjangan = Input::get('Kode_Tunjangan');

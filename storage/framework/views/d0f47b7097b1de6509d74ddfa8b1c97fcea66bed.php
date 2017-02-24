@@ -100,25 +100,25 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="Jabatan">Jabatan</a>
+                        <a href="/Jabatan">Jabatan</a>
                     </li>
                     <li>
-                        <a href="Golongan">Golongan</a>
+                        <a href="/Golongan">Golongan</a>
                     </li>
                     <li>
-                        <a href="Kategori_Lembur">Kategori Lembur</a>
+                        <a href="/Kategori_Lembur">Kategori Lembur</a>
                     </li>
                     <li>
-                        <a href="Pegawai">Pegawai</a>
+                        <a href="/Pegawai">Pegawai</a>
                     </li>
                     <li>
-                        <a href="Lembur_Pegawai">Lembur Pegawai</a>
+                        <a href="/Lembur_Pegawai">Lembur Pegawai</a>
                     </li>
                     <li>
-                        <a href="Tunjangan">tunjangan</a>
+                        <a href="/Tunjangan">tunjangan</a>
                     </li>
                     <li>
-                        <a href="Tunjangan_Pegawai">tunjangan Pegawai</a>
+                        <a href="/Tunjangan_Pegawai">tunjangan Pegawai</a>
                     </li>
                     <li>
                         <a href="/Penggajian">Penggajian</a>
