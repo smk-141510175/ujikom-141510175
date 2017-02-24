@@ -34,7 +34,7 @@
 						<td><center><?php echo e($data->Golongan->Nama_Golongan); ?></center></td>
 						<td><center><?php echo e($data->Status); ?></center></td>
 						<td><center><?php echo e($data->Jumlah_Anak); ?></center></td>
-					<td><center><?php echo 'Rp'. number_format($data->Besaran_Uang, 2,",","."); ?>
+					<td><center><?php echo 'Rp.'. number_format($data->Besaran_Uang, 2,",","."); ?>
              </center></td>
 						<td><center><a href="<?php echo e(route('Tunjangan.edit', $data->id)); ?>" class="btn btn-warning">Ubah</a></center></td>
 						<td><center>

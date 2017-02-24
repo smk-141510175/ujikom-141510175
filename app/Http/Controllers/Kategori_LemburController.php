@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Request;
+use Input;
+use Illuminate\http\Request;
+
 use App\Golongan;
-use App\Jabatan;
 use App\Kategori_Lembur;
+use App\Jabatan;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Kategori_LemburController extends Controller
 {
@@ -50,8 +55,18 @@ class Kategori_LemburController extends Controller
     public function store(Request $request)
     {
         //
-         $Kategori_Lembur=Request::all();
-        Kategori_Lembur::create($Kategori_Lembur);
+         $this -> validate($request, [
+            'Kode_Lembur' => 'required|min:3|unique:Kategori_Lembur',
+            ]);
+
+        $Kategori_Lembur = new Kategori_Lembur;
+        $Kategori_Lembur->Kode_Lembur = $request->get('Kode_Lembur');
+        $Kategori_Lembur->Kode_Jabatan = $request->get('Kode_Jabatan');
+        $Kategori_Lembur->Kode_Golongan = $request->get('Kode_Golongan');
+        
+        $Kategori_Lembur->Besaran_Uang = $request->get('Besaran_Uang');
+        $Kategori_Lembur->save();
+
         return redirect('Kategori_Lembur');
     }
 
@@ -91,7 +106,7 @@ class Kategori_LemburController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $Kategori_LemburUpdate=Request::all();
+         $Kategori_LemburUpdate=Request::all();
         $Kategori_Lembur=Kategori_Lembur::find($id);
         $Kategori_Lembur->update($Kategori_LemburUpdate);
         return redirect('Kategori_Lembur');

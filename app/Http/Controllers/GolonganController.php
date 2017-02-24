@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Request;
-use App\Golongan;
-use DB;
-use Validator;
 use Input;
+use Illuminate\Http\Request;
+use App\Http\Requests;
+use App\Golongan;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class GolonganController extends Controller
 {
@@ -47,9 +49,15 @@ class GolonganController extends Controller
     public function store(Request $request)
     {
         //
-         $Golongan=Request::all();
-        Golongan::create($Golongan);
-        return redirect('Golongan');
+          $this -> validate($request, [
+            'Kode_Golongan' => 'required|min:3|unique:Golongan',
+            ]);
+
+        $Gol = new Golongan;
+        $Gol->Kode_Golongan = $request->get('Kode_Golongan');
+        $Gol->Nama_Golongan = $request->get('Nama_Golongan');
+        $Gol->Besaran_Uang = $request->get('Besaran_Uang');
+        $Gol->save();
     }
 
     /**
@@ -87,9 +95,16 @@ class GolonganController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $GolonganUpdate=Request::all();
         $Golongan=Golongan::find($id);
-        $Golongan->update($GolonganUpdate);
+         $this -> validate($request, [
+            'Kode_Golongan' => 'required|min:3|unique:Golongan',
+            ]);
+
+        $Golong = new Golongan;
+        $Golong->Kode_Golongan = $request->get('Kode_Golongan');
+        $Golong->Nama_Golongan = $request->get('Nama_Golongan');
+        $Golong->Besaran_Uang = $request->get('Besaran_Uang');
+        $Golong->save();
         return redirect('Golongan'); 
     }
 

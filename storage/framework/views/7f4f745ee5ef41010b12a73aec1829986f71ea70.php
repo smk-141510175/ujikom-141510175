@@ -2,15 +2,23 @@
             <div class="panel panel-default">
                 <div class="panel-heading"><center><font color="black" size="6%">Create Golongan</font></div>
 </center>
+               <div class="panel panel-primary">
+                <div class="panel-heading"><center><h3><font color="white" face="Maindra GD" >Tambah Data Golongan</h3></font></div>
+</center>
                 <div class="panel-body">
     <?php echo Form::open(['url' => 'Golongan']); ?>
 
-    <div class="form-group">
-        <?php echo Form::label('Kode Golongan', 'Kode Golongan'); ?>
+     <div class="form-group<?php echo e($errors->has('Kode_Golongan') ? ' has-error' : ''); ?>">
+                            <?php echo Form::label('Kode', 'Kode Golongan:'); ?>
 
-        <?php echo Form::text('Kode_Golongan',null,['class'=>'form-control','required']); ?>
+                            <input type="text" name="Kode_Golongan" class="form-control" required>
 
-    </div>
+                            <?php if($errors->has('Kode_Golongan')): ?>
+                                <span class="help-block">
+                                    <strong><?php echo e($errors->first('Kode_Golongan')); ?></strong>
+                                </span>
+                            <?php endif; ?> 
+                        </div>
     <div class="form-group">
         <?php echo Form::label('Nama Golongan', 'Nama Golongan'); ?>
 

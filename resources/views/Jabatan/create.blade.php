@@ -8,7 +8,7 @@
                 <div class="panel-body">
     {!! Form::open(['url' => 'Jabatan']) !!}
      <div class="form-group{{ $errors->has('Kode_Jabatan') ? ' has-error' : '' }}">
-                            {!! Form::label('Kode', 'Kode Golongan:') !!}
+                            {!! Form::label('Kode', 'Kode Jabatan:') !!}
                             <input type="text" name="Kode_Jabatan" class="form-control" required>
 
                             @if ($errors->has('Kode_Jabatan'))

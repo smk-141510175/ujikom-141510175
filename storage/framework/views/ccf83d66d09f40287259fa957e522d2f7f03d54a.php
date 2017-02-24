@@ -2,15 +2,21 @@
             <div class="panel panel-default">
                 <div class="panel-heading"><center><font color="black" size="6%">Create Kategori Lembur</font></div>
 </center>
-                <div class="panel-body">
+                
+    <div class="panel-body">
     <?php echo Form::open(['url' => 'Kategori_Lembur']); ?>
 
-    <div class="form-group">
-        <?php echo Form::label('Kode Lembur', 'Kode Lembur'); ?>
+    <div class="form-group<?php echo e($errors->has('Kode_Lembur') ? ' has-error' : ''); ?>">
+                            <?php echo Form::label('Kode', 'Kode Lembur:'); ?>
 
-        <?php echo Form::text('Kode_Lembur',null,['class'=>'form-control','required']); ?>
+                            <input type="text" name="Kode_Lembur" class="form-control" required>
 
-    </div>
+                            <?php if($errors->has('Kode_Lembur')): ?>
+                                <span class="help-block">
+                                    <strong><?php echo e($errors->first('Kode_Lembur')); ?></strong>
+                                </span>
+                            <?php endif; ?> 
+                        </div>
 
       <div class="form-group">
       <?php echo Form::label('Jabatan', 'Jabatan'); ?>
